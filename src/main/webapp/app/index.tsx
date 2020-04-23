@@ -17,6 +17,9 @@ const devTools = process.env.NODE_ENV === 'development' ? <DevTools /> : null;
 const store = initStore();
 registerLocale(store);
 
+/* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+console.warn('**********0001 index.js initia is called');
+
 const actions = bindActionCreators({ clearAuthentication }, store.dispatch);
 setupAxiosInterceptors(() => actions.clearAuthentication('login.error.unauthorized'));
 

@@ -16,11 +16,22 @@ const defaultMiddlewares = [
   loadingBarMiddleware(),
   loggerMiddleware
 ];
+
+const composeEnhancers = (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 const composedMiddlewares = middlewares =>
   process.env.NODE_ENV === 'development'
-    ? compose(applyMiddleware(...defaultMiddlewares, ...middlewares), DevTools.instrument())
+    ? composeEnhancers(
+        applyMiddleware(...defaultMiddlewares, ...middlewares)
+        // , DevTools.instrument()
+      )
     : compose(applyMiddleware(...defaultMiddlewares, ...middlewares));
 
-const initialize = (initialState?: IRootState, middlewares = []) => createStore(reducer, initialState, composedMiddlewares(middlewares));
+const initialize = (initialState?: IRootState, middlewares = []) => {
+  /* eslint no-console: ["error", { allow: ["warn", "error"] }] */
+  console.warn('**********0002 store.js initia is called');
+
+  return createStore(reducer, initialState, composedMiddlewares(middlewares));
+};
 
 export default initialize;
