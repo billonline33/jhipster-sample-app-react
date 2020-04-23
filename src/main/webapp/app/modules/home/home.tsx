@@ -91,6 +91,11 @@ export const Home = (props: IHomeProp) => {
           </a>
           !
         </p>
+        <p>
+          <Link to="/underConstruction">underconstruction</Link> <br />
+          <Link to="/underConstruction2">underconstruction2</Link> <br />
+          <Link to="/bank-account">bank account</Link> <br />
+        </p>
       </Col>
       <Col md="3" className="pad">
         <span className="hipster rounded" />
