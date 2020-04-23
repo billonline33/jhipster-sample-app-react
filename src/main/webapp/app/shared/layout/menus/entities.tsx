@@ -13,6 +13,12 @@ export const EntitiesMenu = props => (
     id="entity-menu"
     style={{ maxHeight: '80vh', overflow: 'auto' }}
   >
+    <MenuItem icon="asterisk" to="/underConstruction">
+      Underconstruction
+    </MenuItem>
+    <MenuItem icon="asterisk" to="/underConstruction2">
+      Underconstruction2
+    </MenuItem>
     <MenuItem icon="asterisk" to="/bank-account">
       <Translate contentKey="global.menu.entities.bankAccount" />
     </MenuItem>
